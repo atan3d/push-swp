@@ -6,7 +6,7 @@
 /*   By: najeuneh <najeuneh@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 13:29:52 by najeuneh          #+#    #+#             */
-/*   Updated: 2024/05/29 14:28:29 by najeuneh         ###   ########.fr       */
+/*   Updated: 2024/05/29 16:29:01 by najeuneh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	push_swap(t_stack *stack)
 	if (stack == NULL || stack->up == NULL)
 		return ;
 	tmp = stack->up;
-	stack->up = stack->up->next;
+	stack->up = tmp->next;
+	tmp->next = stack->up->next;
 	stack->up->next = tmp;
 }
 
