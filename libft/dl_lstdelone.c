@@ -6,7 +6,7 @@
 /*   By: najeuneh <najeuneh@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 14:56:26 by najeuneh          #+#    #+#             */
-/*   Updated: 2024/05/28 17:40:58 by najeuneh         ###   ########.fr       */
+/*   Updated: 2024/05/30 13:55:19 by najeuneh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	dl_lstdelback(t_stack *a)
 	if (!a)
 		return ;
 	temp = a->low;
-	a->up = a->low->next;
-	a->low->prev = NULL;
+	a->low = a->low->prev;
+	a->low->next = NULL;
 	free(temp);
 }

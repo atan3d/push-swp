@@ -6,7 +6,7 @@
 /*   By: najeuneh <najeuneh@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 16:46:54 by najeuneh          #+#    #+#             */
-/*   Updated: 2024/05/28 17:33:40 by najeuneh         ###   ########.fr       */
+/*   Updated: 2024/05/30 14:10:34 by najeuneh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,25 @@
 
 void	rotate(t_stack *stack)
 {
-	t_stack	*first;
-	t_stack	*last;
-
-	first = stack;
-	stack = stack->up->next;
-	last = ft_lstlast(stack);
-	first->up->next = NULL;
-	last->up->next = first;
+	dl_lstadd_back(stack, stack->up->nbr);
+	dl_lstdelfront(stack);
 }
 
-void	ra(t_list *list)
+void	ra(t_stack *a)
 {
-	rotate(list);
-	printf("ra\n");
+	rotate(a);
+	ft_printf("ra\n");
 }
 
-void	rb(t_list *list)
+void	rb(t_stack *b)
 {
-	rotate(list);
-	printf("rb\n");
+	rotate(b);
+	ft_printf("ra\n");
 }
 
-void	rr(t_list list1, t_list list2)
+void	rr(t_stack *a, t_stack *b)
 {
-	rotate(&list1);
-	rotate(&list2);
-	printf("ra\n");
-	printf("rb\n");
+	rotate(a);
+	rotate(b);
+	ft_printf("rr\n");
 }

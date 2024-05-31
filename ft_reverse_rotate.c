@@ -6,33 +6,33 @@
 /*   By: najeuneh <najeuneh@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 15:06:40 by najeuneh          #+#    #+#             */
-/*   Updated: 2024/05/28 15:35:44 by najeuneh         ###   ########.fr       */
+/*   Updated: 2024/05/30 14:04:21 by najeuneh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "inc/libft.h"
 
-void	reverse_rotate(t_dlist *list)
+void	reverse_rotate(t_stack *stack)
 {
-	t_dlist
+	dl_lstadd_front(stack, stack->low->nbr);
+	dl_lstdelback(stack);
 }
 
-int	main()
+void	rra(t_stack *a)
 {
-	int	i;
-	t_list *lst;
+	reverse_rotate(a);
+	ft_printf("rra\n");
+}
 
-	lst = NULL;
-	i = 1;
-	while(i < 5)
-	{
-		ft_lstadd_back(&lst, ft_lstnew(i));
-		i++;
-	}
-	reverse_rotate(lst);
-	while (lst)
-	{
-		printf("%d\n", lst->content);
-		lst = lst->next;
-	}
+void	rrb(t_stack *b)
+{
+	reverse_rotate(b);
+	ft_printf("rrb\n");
+}
+
+void	rrr(t_stack *a, t_stack *b)
+{
+	reverse_rotate(a);
+	reverse_rotate(b);
+	ft_printf("rrr\n");
 }

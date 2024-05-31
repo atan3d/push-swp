@@ -6,7 +6,7 @@
 /*   By: najeuneh <najeuneh@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 12:21:32 by najeuneh          #+#    #+#             */
-/*   Updated: 2024/05/28 17:24:11 by najeuneh         ###   ########.fr       */
+/*   Updated: 2024/05/30 16:59:05 by najeuneh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ int	check_arg(const char *str, int i)
 }
 /*SEGFAULT if NULL*/
 
-int	ft_atoi(const char *str1)
+long long	ft_atoi(const char *str1)
 {
 	int		i;
-	int		nb;
+	long long		nb;
 	int		sign;
 
 	i = 0;
@@ -38,10 +38,10 @@ int	ft_atoi(const char *str1)
 	sign = 1;
 	while (str1[i] == 32 || (str1[i] >= 9 && str1[i] <= 13))
 		i++;
-	if (check_arg(str1, i) == 1)
-		return (0);
-	if (check_arg(str1, i) == 2)
-		return (-1);
+	// if (check_arg(str1, i) == 1)
+	// 	return (0);
+	// if (check_arg(str1, i) == 2)
+	// 	return (-1);
 	if (str1[i] == '-' || str1[i] == '+')
 	{
 		if (str1[i] == '-')

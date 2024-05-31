@@ -6,7 +6,7 @@
 /*   By: najeuneh <najeuneh@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 18:21:22 by najeuneh          #+#    #+#             */
-/*   Updated: 2024/05/28 17:26:09 by najeuneh         ###   ########.fr       */
+/*   Updated: 2024/05/30 17:21:00 by najeuneh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	st1 = (char *)s1;
 	str = malloc((ft_strlen(st1) + ft_strlen(st2)) * sizeof(char *) + 1);
 	if (str == NULL)
-		return (NULL);
+		return (free(st1), NULL);
 	while (st1[i])
 	{
 		str[i] = st1[i];
@@ -38,5 +38,5 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		j++;
 	}
 	str[i + j] = '\0';
-	return (str);
+	return (free(st1), str);
 }

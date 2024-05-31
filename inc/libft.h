@@ -16,6 +16,7 @@
 #include <ctype.h>
 #include <unistd.h>
 #include "push_swap.h"
+#include "ft_printf.h"
 
 typedef struct s_list
 {
@@ -47,7 +48,7 @@ int		ft_isalpha(int c);
 int		ft_isalnum(int c);
 void	*ft_calloc(size_t count, size_t size);
 void	ft_bzero(void *s, size_t n);
-int		ft_atoi(const char *str);
+long long	ft_atoi(const char *str);
 char	*ft_strdup(const char *s1);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_itoa(int n);
@@ -73,7 +74,9 @@ t_list	*ft_lstnew(void *content);
 
 
 //DOUBLE LISTE CHAINER
-t_node	*dl_lstnew(int nbr);
-void	dl_lstadd_front(t_stack *a, int nbr);
+t_node	*dl_lstnew(long long nbr);
+void	dl_lstadd_front(t_stack *a, long long nbr);
 void	dl_lstdelfront(t_stack *a);
 void	dl_lstdelback(t_stack *a);
+void	dl_lstadd_back(t_stack *a, long long nbr);
+int		dl_lstsize(t_stack *stack);

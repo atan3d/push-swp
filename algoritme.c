@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   algoritme.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: najeuneh <najeuneh@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/04 19:46:53 by najeuneh          #+#    #+#             */
-/*   Updated: 2024/04/11 16:53:43 by najeuneh         ###   ########.fr       */
+/*   Created: 2024/05/30 18:05:03 by najeuneh          #+#    #+#             */
+/*   Updated: 2024/05/31 15:39:54 by najeuneh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "inc/libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	algoritme(t_stack *stack)
 {
-	size_t		i;
-	char		*st1;
-	char		*st2;
+	t_stack	*b;
+	float	moy;
 
-	st1 = (char *)s1;
-	st2 = (char *)s2;
-	i = 0;
-	if (n == 0)
-		return (0);
-	while (st1[i] && st1[i] == st2[i] && i < n - 1)
-		i++;
-	if ((unsigned char)st1[i] > (unsigned char)st2[i])
-		return (1);
-	else if ((unsigned char)st1[i] < (unsigned char)st2[i])
-		return (-1);
-	else
-		return (0);
+	b = NULL;
+	b = ft_init(b);
+	while (dl_lstsize(stack) > 5)
+	{
+		moy = moyen_cal(stack);
+		ft_try(stack, b, moy);
+	}
+	ft_bestfriends(stack, b);
+	ft_cost(b);
+	
 }

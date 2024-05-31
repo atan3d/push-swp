@@ -6,23 +6,32 @@
 /*   By: najeuneh <najeuneh@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 14:38:46 by najeuneh          #+#    #+#             */
-/*   Updated: 2024/05/28 17:24:04 by najeuneh         ###   ########.fr       */
+/*   Updated: 2024/05/31 13:23:13 by najeuneh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-int	ft_lstsize(t_list *lst)
+int	dl_lstsize(t_stack *stack)
 {
-	int	i;
+	int		i;
+	t_node	*node;
 
+	node = stack->up;
 	i = 0;
-	if (!lst)
+	if (!stack)
 		return (0);
-	while (lst != NULL)
+	while (node != NULL)
 	{
-		lst = lst->next;
 		i++;
+		node = node->next;
 	}
 	return (i);
 }
+
+	// ft_printf("-----------a-----------\n");
+	// while (stack->up != NULL)
+	// {
+	// 	printf("%lld\n", stack->up->nbr);
+	// 	stack->up = stack->up->next;
+	// }
