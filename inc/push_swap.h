@@ -6,7 +6,7 @@
 /*   By: najeuneh <najeuneh@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 13:30:16 by najeuneh          #+#    #+#             */
-/*   Updated: 2024/05/31 15:11:06 by najeuneh         ###   ########.fr       */
+/*   Updated: 2024/05/31 15:46:27 by najeuneh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_stack
 {
 	t_node	*up;
 	t_node	*low;
+	int		median;
 }				t_stack;
 
 // SWAP

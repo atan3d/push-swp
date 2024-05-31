@@ -24,19 +24,19 @@ ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c \
 all: $(NAME)
 
 $(NAME): $(OBJETS)
-	ar -src $(NAME) $(OBJETS)
+	@ar -src $(NAME) $(OBJETS)
 
 bonus: $(BONUSOBJ) $(OBJETS)
-	ar -src $(NAME) $(OBJETS)
+	@ar -src $(NAME) $(OBJETS)
 
 $(OBJETS): $(BONUSOBJ)
-	gcc $(FLAG) -I $(INCLUDE) -I $(INCLUDE_2) -c ${@:.o=.c} -o $@
+	@gcc $(FLAG) -I $(INCLUDE) -I $(INCLUDE_2) -c ${@:.o=.c} -o $@
 
 clean:
-	rm -f $(OBJETS)
+	@rm -f $(OBJETS)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 

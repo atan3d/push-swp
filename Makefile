@@ -6,7 +6,7 @@
 #    By: najeuneh <najeuneh@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/22 17:24:32 by nicolive          #+#    #+#              #
-#    Updated: 2024/05/31 15:42:31 by najeuneh         ###   ########.fr        #
+#    Updated: 2024/05/31 15:48:23 by najeuneh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,15 +65,15 @@ $(NAME) : $(MY_OBJECTS)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(MAKE) clean -C $(PRINTF)
-	$(MAKE) clean -C $(LIBFT)
-	${RM} ${MY_OBJECTS}
+	@$(MAKE) clean -C $(PRINTF)
+	@$(MAKE) clean -C $(LIBFT)
+	@${RM} ${MY_OBJECTS}
 
 
 fclean: clean
-	$(MAKE) fclean -C $(PRINTF)
-	$(MAKE) fclean -C $(LIBFT)
-	${RM} ${NAME}
+	@$(MAKE) fclean -C $(PRINTF)
+	@$(MAKE) fclean -C $(LIBFT)
+	@${RM} ${NAME}
 
 re: fclean all
 

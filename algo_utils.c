@@ -6,7 +6,7 @@
 /*   By: najeuneh <najeuneh@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 18:17:10 by najeuneh          #+#    #+#             */
-/*   Updated: 2024/05/31 15:30:59 by najeuneh         ###   ########.fr       */
+/*   Updated: 2024/05/31 15:52:35 by najeuneh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ int	ft_median(t_stack *stack)
 		i++;
 		node = node->next;
 	}
+	stack->median = median;
 	return (median);
 }
 
