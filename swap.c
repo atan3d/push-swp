@@ -6,7 +6,7 @@
 /*   By: najeuneh <najeuneh@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 13:29:52 by najeuneh          #+#    #+#             */
-/*   Updated: 2024/05/30 16:32:26 by najeuneh         ###   ########.fr       */
+/*   Updated: 2024/06/04 15:32:16 by najeuneh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 void	push_swap(t_stack *stack)
 {
-	t_node	*tmp;
+	int	int1;
+	int	int2;
 
 	if (stack == NULL || stack->up == NULL)
 		return ;
-	tmp = stack->up;
-	stack->up = tmp->next;
-	tmp->next = stack->up->next;
-	stack->up->next = tmp;
+	int1 = stack->up->nbr;
+	int2 = stack->up->next->nbr;
+	stack->up->nbr = int2;
+	stack->up->next->nbr = int1;
 }
 
 void	sa(t_stack *stack)

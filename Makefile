@@ -6,7 +6,7 @@
 #    By: najeuneh <najeuneh@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/22 17:24:32 by nicolive          #+#    #+#              #
-#    Updated: 2024/05/31 15:48:23 by najeuneh         ###   ########.fr        #
+#    Updated: 2024/06/03 19:29:11 by najeuneh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ NAME = push_swap
 
 MY_SOURCES = ft_reverse_rotate.c push.c rotate.c swap.c check_arg.c algo_utils.c algoritme.c \
 
-CFLAGS = -c -Wall -Werror -Wextra 
+CFLAGS = -c -Wall -Werror -Wextra
 
 PRINTF.A = ./ft_printf/libftprintf.a
 
@@ -60,9 +60,6 @@ $(NAME) : $(MY_OBJECTS)
 	@echo "╚═╝      ╚═════╝ ╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝ ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝     "
 	@echo "                       								 "     
 	@cc $(LIBFT.A) $(PRINTF.A) -o $(NAME) $(MY_OBJECTS)
-
-%.o : %.c
-	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@$(MAKE) clean -C $(PRINTF)

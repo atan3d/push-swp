@@ -6,7 +6,7 @@
 /*   By: najeuneh <najeuneh@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 15:06:40 by najeuneh          #+#    #+#             */
-/*   Updated: 2024/05/30 14:04:21 by najeuneh         ###   ########.fr       */
+/*   Updated: 2024/06/04 15:12:11 by najeuneh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,21 @@
 
 void	reverse_rotate(t_stack *stack)
 {
-	dl_lstadd_front(stack, stack->low->nbr);
-	dl_lstdelback(stack);
+	t_node	*tmp;
+	t_node	*tmp2;
+	
+	if (!stack || dl_lstsize(stack) < 2)
+	return ;
+	tmp = stack->low;
+	tmp2 = stack->up;
+	stack->low = stack->low->prev;
+	stack->low->next = NULL;
+	stack->up->prev = tmp;
+	tmp->prev = NULL;
+	stack->up = tmp;
+	stack->up->prev = NULL;
+	stack->up->next = tmp2;
+
 }
 
 void	rra(t_stack *a)

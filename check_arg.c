@@ -6,7 +6,7 @@
 /*   By: najeuneh <najeuneh@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 15:26:11 by najeuneh          #+#    #+#             */
-/*   Updated: 2024/05/31 13:26:43 by najeuneh         ###   ########.fr       */
+/*   Updated: 2024/06/04 17:37:19 by najeuneh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int	init_lst(char	*str, t_stack **stack)
 			return (ft_printf("Error\n"), free(strs), 0);
 	}
 	(*stack)->low->next = NULL;
+	(*stack)->up->prev = NULL;
 	return (free(strs[1]), 1);
 }
 
@@ -71,17 +72,35 @@ int	main(int ac, char **av)
 		if (init_lst(str, &stack) == 0)
 			return (0);
 	}
-	// ft_printf("-----------a-----------\n");
-	// while (stack->up != NULL)
-	// {
-	// 	printf("%lld\n", stack->up->nbr);
-	// 	stack->up = stack->up->next;
-	// }
 	suite_main(stack);
 }
 
 void	suite_main(t_stack *stack)
 {
+	t_node	*node_a;
+	int		size;
+
 	algoritme(stack);
+	size = dl_lstsize(stack);
+	ft_median(stack);
+	ft_min_int(stack);
+	node_a = stack->up;
+	if (node_a->index <= stack->median)
+	{
+		while (node_a->index > 0)
+		{
+			ra(stack);
+			node_a->index--;
+		}
+	}
+	else
+	{
+		while (node_a->index < size)
+		{
+			rra(stack);
+			node_a->index++;
+		}
+	}
 }
+
 

@@ -6,7 +6,7 @@
 /*   By: najeuneh <najeuneh@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 18:05:03 by najeuneh          #+#    #+#             */
-/*   Updated: 2024/05/31 16:03:02 by najeuneh         ###   ########.fr       */
+/*   Updated: 2024/06/04 17:35:46 by najeuneh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,107 @@ void	algoritme(t_stack *stack)
 	b = NULL;
 	b = ft_init(b);
 	b->median = 0;
+	node_a = stack->up;
+	node_b = b->up;
 	while (dl_lstsize(stack) > 5)
 	{
 		moy = moyen_cal(stack);
 		ft_try(stack, b, moy);
 	}
-	ft_bestfriends(stack, b);
+	ft_index(stack);
+	ft_a_try(stack, b);
 	ft_cost(b);
-	node_a = stack;
-	node_b = b;
-	while(node_b != NULL)
+	ft_cost(stack);
+	ft_bestfriends(stack, b);
+	ft_min_cost(stack, b);
+	node_a = stack->up;
+	algo_b(node_b, b, stack);
+	pa(stack, b);
+	algortime2(stack, b);
+}
+
+void	algortime2(t_stack *a, t_stack *b)
+{
+	int		size;
+	t_node	*node_a;
+	t_node	*node_b;
+
+	size = dl_lstsize(b);
+	while (size > 1)
 	{
-		ft_min_cost
+		node_a = a->up;
+		node_b = b->up;
+
+		a->median = ft_median(a);
+		b->median = ft_median(b);
+		ft_bestfriends(a, b);
+		ft_cost(b);
+		ft_cost(a);
+		node_a = a->up;
+		node_b = b->up;
+		ft_min_cost(a, b);
+		algo_b(node_b, b, a);
+		pa(a, b);
+		size--;
+	}
+	ft_last_b(a, b);
+}
+void	algo_b(t_node *node_b, t_stack *b, t_stack *a)
+{
+	node_b = b->up;
+	while (node_b != NULL)
+	{
+		if (node_b->bool == 1)
+		{
+			if (node_b->index < b->median)
+			{
+				while (node_b->index > 0)
+				{
+					rb(b);
+					node_b->index--;
+				}
+				algo_a(node_b, a);
+			}
+			else
+			{
+				while (node_b->index < dl_lstsize(b))
+				{
+					rrb(b);
+					node_b->index++;
+				}
+				algo_a(node_b, a);
+			}
+		}
+		node_b = node_b->next;
 	}
 }
+
+void	algo_a(t_node *node_b, t_stack *a)
+{
+	int size;
+	
+	size = dl_lstsize(a);
+	if (node_b->best->index < a->median)
+	{
+		while (node_b->best->index > 0)
+		{
+			ra(a);
+			node_b->best->index--;
+		}
+	}
+	else
+	{
+		while (node_b->best->index < size)
+		{
+			rra(a);
+			node_b->best->index++;
+		}
+	}
+}
+
+	// node_b = b->up;
+	// while (node_b != NULL)
+	// {
+	// 	printf("a : %lld  b : %lld  bool : %d index a : %d  index b : %d cost : %d\n", node_b->best->nbr, node_b->nbr, node_b->bool, node_b->best->index, node_b->index, node_b->cost2);
+	// 	node_b = node_b->next;
+	// }
