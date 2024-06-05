@@ -6,7 +6,7 @@
 /*   By: najeuneh <najeuneh@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 15:01:46 by najeuneh          #+#    #+#             */
-/*   Updated: 2024/06/04 17:36:34 by najeuneh         ###   ########.fr       */
+/*   Updated: 2024/06/05 13:06:02 by najeuneh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	push(t_stack *giver, t_stack *reciever, t_node *tmp, t_node *tmp2)
 {
-	if (!giver)
-		return;
+	if (!giver->up)
+		return ;
 	tmp = giver->up->next;
 	giver->up->next = NULL;
 	if (!reciever->up)
@@ -32,7 +32,6 @@ void	push(t_stack *giver, t_stack *reciever, t_node *tmp, t_node *tmp2)
 	}
 	giver->up->prev = NULL;
 	giver->up = tmp;
-
 }
 
 void	pa(t_stack *a, t_stack *b)

@@ -6,7 +6,7 @@
 /*   By: najeuneh <najeuneh@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 18:05:03 by najeuneh          #+#    #+#             */
-/*   Updated: 2024/06/04 17:35:46 by najeuneh         ###   ########.fr       */
+/*   Updated: 2024/06/05 15:38:18 by najeuneh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,35 @@ void	algoritme(t_stack *stack)
 	b->median = 0;
 	node_a = stack->up;
 	node_b = b->up;
+	if (is_tryed(stack) == 1)
+		return ;
 	while (dl_lstsize(stack) > 5)
 	{
 		moy = moyen_cal(stack);
 		ft_try(stack, b, moy);
 	}
 	ft_index(stack);
-	ft_a_try(stack, b);
+	ft_a_try(stack, b, node_a);
+	if (is_tryed(stack) == 1 && b->up == NULL)
+		return ;
+	algoritme1(stack, b);
+}
+
+void	algoritme1(t_stack *stack, t_stack *b)
+{
+	t_node	*node_a;
+	t_node	*node_b;
+
 	ft_cost(b);
 	ft_cost(stack);
 	ft_bestfriends(stack, b);
 	ft_min_cost(stack, b);
 	node_a = stack->up;
+	node_b = b->up;
 	algo_b(node_b, b, stack);
 	pa(stack, b);
+	// if (is_tryed(stack) == 1 && dl_lstsize(b) == 0)
+	// 	return ;
 	algortime2(stack, b);
 }
 
@@ -52,7 +67,6 @@ void	algortime2(t_stack *a, t_stack *b)
 	{
 		node_a = a->up;
 		node_b = b->up;
-
 		a->median = ft_median(a);
 		b->median = ft_median(b);
 		ft_bestfriends(a, b);
@@ -67,9 +81,9 @@ void	algortime2(t_stack *a, t_stack *b)
 	}
 	ft_last_b(a, b);
 }
+
 void	algo_b(t_node *node_b, t_stack *b, t_stack *a)
 {
-	node_b = b->up;
 	while (node_b != NULL)
 	{
 		if (node_b->bool == 1)
@@ -99,8 +113,8 @@ void	algo_b(t_node *node_b, t_stack *b, t_stack *a)
 
 void	algo_a(t_node *node_b, t_stack *a)
 {
-	int size;
-	
+	int	size;
+
 	size = dl_lstsize(a);
 	if (node_b->best->index < a->median)
 	{
@@ -119,10 +133,3 @@ void	algo_a(t_node *node_b, t_stack *a)
 		}
 	}
 }
-
-	// node_b = b->up;
-	// while (node_b != NULL)
-	// {
-	// 	printf("a : %lld  b : %lld  bool : %d index a : %d  index b : %d cost : %d\n", node_b->best->nbr, node_b->nbr, node_b->bool, node_b->best->index, node_b->index, node_b->cost2);
-	// 	node_b = node_b->next;
-	// }

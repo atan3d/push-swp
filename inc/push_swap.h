@@ -6,7 +6,7 @@
 /*   By: najeuneh <najeuneh@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 13:30:16 by najeuneh          #+#    #+#             */
-/*   Updated: 2024/06/04 16:51:57 by najeuneh         ###   ########.fr       */
+/*   Updated: 2024/06/05 17:08:20 by najeuneh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,13 @@ void	algo_b(t_node *node_b, t_stack *b, t_stack *a);
 t_node	*ft_min_int(t_stack *stack);
 t_node	*ft_max_int(t_stack *stack);
 int		is_tryed(t_stack *stack);
-void	ft_a_try(t_stack *stack, t_stack *b);
+void	ft_a_try(t_stack *stack, t_stack *b, t_node *node);
 void	ft_last_b(t_stack *a, t_stack *b);
 void	ft_index(t_stack *stack);
+int		parsing(char **strs);
+int		ft_check2(t_stack *stack);
+void	ft_a_try2(t_stack *stack, t_stack *b);
+void	algoritme1(t_stack *stack, t_stack *b);
+void	free_all(t_stack **stack, char **strs);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: najeuneh <najeuneh@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/22 17:24:32 by nicolive          #+#    #+#              #
-#    Updated: 2024/06/03 19:29:11 by najeuneh         ###   ########.fr        #
+#    Updated: 2024/06/05 12:59:18 by najeuneh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ CC = cc
 
 NAME = push_swap
 
-MY_SOURCES = ft_reverse_rotate.c push.c rotate.c swap.c check_arg.c algo_utils.c algoritme.c \
+MY_SOURCES =  algo_utils.c algo_utils3.c check_arg.c parsing.c rotate.c algo_utils2.c algoritme.c ft_reverse_rotate.c \
+				push.c swap.c \
 
 CFLAGS = -c -Wall -Werror -Wextra
 
@@ -52,7 +53,7 @@ $(NAME) : $(MY_OBJECTS)
 	@$(MAKE) -C $(LIBFT)
 	@printf "                                               \r"
 	@echo "                       								 "        			
-	@echo "\033[1;33m██████╗ ██╗   ██╗███████╗██╗  ██╗        ███████╗██╗    ██╗ █████╗ ██████╗ "
+	@echo "██╗   ██╗███████╗██╗  ██╗        ███████╗██╗    ██╗ █████╗ ██████╗ "
 	@echo "██╔══██╗██║   ██║██╔════╝██║  ██║        ██╔════╝██║    ██║██╔══██╗██╔══██╗"
 	@echo "██████╔╝██║   ██║███████╗███████║        ███████╗██║ █╗ ██║███████║██████╔╝"
 	@echo "██╔═══╝ ██║   ██║╚════██║██╔══██║        ╚════██║██║███╗██║██╔══██║██╔═══╝ "

@@ -6,13 +6,13 @@
 /*   By: najeuneh <najeuneh@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 14:48:09 by najeuneh          #+#    #+#             */
-/*   Updated: 2024/05/28 17:27:29 by najeuneh         ###   ########.fr       */
+/*   Updated: 2024/06/04 18:23:06 by najeuneh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-void ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	if (!lst)
 		return ;

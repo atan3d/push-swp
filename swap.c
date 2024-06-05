@@ -6,7 +6,7 @@
 /*   By: najeuneh <najeuneh@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 13:29:52 by najeuneh          #+#    #+#             */
-/*   Updated: 2024/06/04 15:32:16 by najeuneh         ###   ########.fr       */
+/*   Updated: 2024/06/04 18:18:23 by najeuneh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,3 @@ void	ss(t_stack *a, t_stack *b)
 	push_swap(b);
 	ft_printf("ss\n");
 }
-
-
