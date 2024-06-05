@@ -6,7 +6,7 @@
 /*   By: najeuneh <najeuneh@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 18:05:03 by najeuneh          #+#    #+#             */
-/*   Updated: 2024/06/05 15:38:18 by najeuneh         ###   ########.fr       */
+/*   Updated: 2024/06/05 18:13:05 by najeuneh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,6 @@ void	algoritme1(t_stack *stack, t_stack *b)
 	node_b = b->up;
 	algo_b(node_b, b, stack);
 	pa(stack, b);
-	// if (is_tryed(stack) == 1 && dl_lstsize(b) == 0)
-	// 	return ;
 	algortime2(stack, b);
 }
 

@@ -6,7 +6,7 @@
 /*   By: najeuneh <najeuneh@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 15:26:11 by najeuneh          #+#    #+#             */
-/*   Updated: 2024/06/05 17:34:36 by najeuneh         ###   ########.fr       */
+/*   Updated: 2024/06/05 18:14:00 by najeuneh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	init_lst(char	*str, t_stack **stack)
 	{
 		dl_lstadd_back(*stack, ft_atoi(strs[i]));
 		if (ft_atoi(strs[i]) > 2147483647 || ft_atoi(strs[i]) < -2147483648)
-			return (write(2, "Error\n", 6), free_all(stack, strs),0);
+			return (write(2, "Error\n", 6), free_all(stack, strs), 0);
 	}
 	(*stack)->low->next = NULL;
 	(*stack)->up->prev = NULL;
@@ -109,10 +109,11 @@ void	suite_main(t_stack *stack)
 	}
 	free_all(&stack, NULL);
 }
+
 void	free_all(t_stack **stack, char **strs)
 {
 	t_node	*temp;
-	int	i;
+	int		i;
 
 	i = 0;
 	if (stack)
